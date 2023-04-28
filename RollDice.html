@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--Author: Fizza Imran
+    Date: 1 june 2022
+    Student number: 991670304
+    Discription: This script prompts the user for number of times they want to roll a dice,
+    gives random faces on each roll and calculates the number of time we get a perticular face-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+</head>
+<body>
+    <!--creating table (html/css)-->
+    <div id="dvContents">
+        <table rules="all" style="text-align:center ; border:1px solid black ; width: 100%; ; table-layout: fixed;" >
+            <tr>
+                <th><b>Face</b></th>
+                <th><b>frequency</b></th>
+            </tr>
+            <tr>
+                <td><b>1</b></td>
+                <td id="one"></td>
+            </tr>
+            <tr>
+                <td><b>2</b></td>
+                <td id="two"></td>
+            </tr>
+            <tr>
+                <td><b>3</b></td>
+                <td id="three"></td>
+            </tr>
+            <tr>
+                <td><b>4</b></td>
+                <td id="four"></td>
+            </tr>
+            <tr>
+                <td><b>5</b></td>
+                <td id="five"></td>
+            </tr>
+            <tr>
+                <td><b>6</b></td>
+                <td id="six"></td>
+            </tr>
+        </table>
+    </div>
+    <!--Functionality (JavaScript)-->
+    <script>
+        //function that returns random number.
+        function RollDice(){
+            return Math.floor((Math.random()*6) + 1) ;
+        }
+        
+        //prompting user for input
+        var num = prompt("enter number of times to roll the dice");
+
+        //array to store frequency
+        let frequency = [0,0,0,0,0,0];
+
+        //face varible that stores result of RollDice() function.
+        var face ;
+
+            //this loops runs as many times as the user wants to roll the dice 
+            //and saves frequency of different faces.
+
+            for(let i=1; i<=num; i++){
+                
+                    face = RollDice(); 
+                    frequency[face - 1] += 1;
+
+            }
+
+        
+        //adding values to the html table
+        document.getElementById("one").innerHTML = frequency[0];
+        document.getElementById("two").innerHTML = frequency[1];
+        document.getElementById("three").innerHTML = frequency[2];
+        document.getElementById("four").innerHTML = frequency[3];
+        document.getElementById("five").innerHTML = frequency[4];
+        document.getElementById("six").innerHTML = frequency[5];
+        
+
+    </script>
+</body>
+</html>
